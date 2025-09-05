@@ -11,10 +11,8 @@ __pycache__/
 .venv/
 venv/
 
-# Node (future steps)
-node_modules/
+# Node artifacts
 frontend/node_modules/
-dist/
 frontend/dist/
 
 # OS / IDE
@@ -22,6 +20,6 @@ frontend/dist/
 .vscode
 .idea
 
-# Local env files
+# Local env
 .env
 .env.local

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tiny default tweaks */
+:root {
+  --bg: #0b0f14;
+  --fg: #e8eef5;
+}
+
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }

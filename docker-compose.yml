@@ -9,15 +9,11 @@ services:
     env_file:
       - .env
     environment:
-      # Fallback if .env isn't present
       - PORT=${PORT-8000}
     ports:
       - "${PORT-8000}:${PORT-8000}"
-    # Bind mount source for live reload in dev
-    volumes:
-      - ./backend/app:/app/backend/app
+    # NOTE: No bind-mount to avoid clobbering /app/backend/app/static built assets.
     healthcheck:
-      # Use container's own health (also defined in Dockerfile) as a secondary guard
       test: ["CMD-SHELL", "curl -fsS http://localhost:${PORT}/api/healthcheck || exit 1"]
       interval: 30s
       timeout: 5s
