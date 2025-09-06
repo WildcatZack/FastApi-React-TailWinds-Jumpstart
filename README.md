@@ -87,6 +87,51 @@ Return to normal:
   - `./src/**/*.{ts,tsx}`
 - **Ports already in use**: Change `PORT` in `.env` (e.g., `18001`) and re-`up`.
 
+## Start a New Project From This Template
+
+### Option A — Use as a GitHub Template (recommended)
+1. On GitHub, mark this repo as a **Template Repository** (Repo Settings → General → “Template repository”).  
+2. Click **Use this template** → **Create a new repository**, name your new project.  
+3. Clone your new repo and run:
+
+       cp .env.example .env
+       docker compose up --build -d
+
+4. Update names/titles:
+   - App title: `backend/app/templates/base.html` (`<title>…</title>`)
+   - Navbar label/link (optional): `frontend/src/Navbar.tsx`
+   - `package.json` name (optional): `frontend/package.json`
+
+### Option B — Start from a Tag Snapshot (immutable)
+Use a known-good tag like `v0.1.1`:
+
+    git clone --depth 1 --branch v0.1.1 git@github.com:<you>/<your-new-repo>.git my-new-project
+    cd my-new-project
+    cp .env.example .env
+    docker compose up --build -d
+
+### Option C — Copy without Git history (degit-style)
+If you want a fresh history from this repo:
+
+    git clone git@github.com:WildcatZack/FastApi-React-TailWinds-Jumpstart.git my-new-project
+    cd my-new-project
+    rm -rf .git
+    git init
+    git add .
+    git commit -m "chore: bootstrap from jumpstarter"
+    git branch -M main
+    git remote add origin git@github.com:<you>/<your-new-repo>.git
+    git push -u origin main
+
+### Option D — Keep history but change origin
+If you want to preserve commit history:
+
+    git clone git@github.com:WildcatZack/FastApi-React-TailWinds-Jumpstart.git my-new-project
+    cd my-new-project
+    git remote remove origin
+    git remote add origin git@github.com:<you>/<your-new-repo>.git
+    git push -u origin master   # or main, if you rename
+
 ## Common Commands
 Build & run (prod-like):
 
